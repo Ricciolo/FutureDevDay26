@@ -9,6 +9,6 @@
     }
   },
   "agents": [
-    "${CLAUDE_PLUGIN_ROOT}/agents/ticket2fix.agent.md"
+    "./agents/ticket2fix.agent.md"
   ]
 }
