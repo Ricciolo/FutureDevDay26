@@ -1,10 +1,13 @@
 {
-  "version": 1,
   "hooks": {
-    "userPromptSubmitted": [
+    "UserPromptSubmit": [
       {
-        "type": "command",
-        "command": "node ./hooks/validate-support-prompt.mjs"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./hooks/validate-support-prompt.mjs"
+          }
+        ]
       }
     ]
   }
