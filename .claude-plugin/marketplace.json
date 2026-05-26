@@ -1,0 +1,14 @@
+{
+  "name": "ticket2fix-plugins",
+  "owner": {
+    "name": "Demo Software House"
+  },
+  "plugins": [
+    {
+      "name": "ticket2fix-mcp-agent",
+      "version": "1.0.0",
+      "source": ".",
+      "description": "Support ticket triage agent powered by a local MCP server."
+    }
+  ]
+}
