@@ -1,0 +1,16 @@
+2026-05-22 08:20:00 INFO  Orders.Import.OrderImportJob - Scheduled import job triggered
+2026-05-22 08:20:01 INFO  ImportExport.FtpConnector - Initializing FTP connection to: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:25:01 INFO  ImportExport.FtpConnector - Connecting to FTP endpoint: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:25:06 ERROR ImportExport.FtpConnector - Connection timeout after 5000ms. FTP endpoint unreachable: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:25:06 WARN  Orders.Import.OrderImportJob - FTP connector failed to connect. Import job cannot proceed.
+2026-05-22 08:25:06 ERROR Orders.Import.OrderImportJob - Import job aborted. 0 orders imported. Reason: FtpConnectorException - endpoint unreachable
+2026-05-22 08:26:00 INFO  ImportExport.FtpConnector - Retry 1/3 - Connecting to FTP endpoint: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:26:05 ERROR ImportExport.FtpConnector - Connection timeout after 5000ms. FTP endpoint unreachable.
+2026-05-22 08:27:00 INFO  ImportExport.FtpConnector - Retry 2/3 - Connecting to FTP endpoint: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:27:05 ERROR ImportExport.FtpConnector - Connection timeout after 5000ms. FTP endpoint unreachable.
+2026-05-22 08:27:05 ERROR Orders.Import.OrderImportJob - Max retries reached. FTP import job permanently failed. 0 orders imported this cycle.
+2026-05-22 08:30:00 INFO  Orders.Import.OrderImportJob - Scheduled import job triggered
+2026-05-22 08:30:00 INFO  ImportExport.FtpConnector - Connecting to FTP endpoint: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:30:01 ERROR ImportExport.FtpConnector - Connection timeout after 5000ms. FTP endpoint unreachable: ftp://legacy-ftp.verdi.internal:21
+2026-05-22 08:30:01 ERROR Orders.Import.OrderImportJob - Import job failed. 0 orders imported this cycle.
+2026-05-22 08:30:01 WARN  ImportExport.FtpConnector - Legacy FTP endpoint may have been decommissioned. Consider updating config/ftp-config.json.

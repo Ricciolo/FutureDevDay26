@@ -1,0 +1,33 @@
+[
+  {
+    "customerId": "CUST-ROSSI",
+    "customerName": "Rossi S.r.l.",
+    "installedVersion": "4.8.2",
+    "enabledModules": ["Billing", "Orders", "Warehouse"],
+    "customizations": [
+      "Custom invoice layout",
+      "Custom order export plugin"
+    ],
+    "lastDeployment": "2026-05-18T18:30:00Z"
+  },
+  {
+    "customerId": "CUST-BIANCHI",
+    "customerName": "Bianchi S.p.A.",
+    "installedVersion": "4.8.1",
+    "enabledModules": ["Reporting", "Orders"],
+    "customizations": [
+      "Custom sales report"
+    ],
+    "lastDeployment": "2026-05-10T14:00:00Z"
+  },
+  {
+    "customerId": "CUST-VERDI",
+    "customerName": "Verdi S.n.c.",
+    "installedVersion": "4.7.9",
+    "enabledModules": ["Orders", "ImportExport"],
+    "customizations": [
+      "Custom FTP order import"
+    ],
+    "lastDeployment": "2026-04-30T10:00:00Z"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ticket2fix-support-server": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/launcher.js"]
+    }
+  }
+}

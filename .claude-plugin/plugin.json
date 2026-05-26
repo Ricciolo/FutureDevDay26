@@ -1,0 +1,14 @@
+{
+  "name": "ticket2fix-mcp-agent",
+  "version": "1.0.0",
+  "description": "Custom Developer Agent for support ticket triage and developer handoff. Powered by a local MCP server with 4 tools: get ticket, get customer context, search known issues, get recent logs.",
+  "mcpServers": {
+    "ticket2fix-support-server": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/launcher.js"]
+    }
+  },
+  "agents": [
+    "${CLAUDE_PLUGIN_ROOT}/agents/ticket2fix.agent.md"
+  ]
+}

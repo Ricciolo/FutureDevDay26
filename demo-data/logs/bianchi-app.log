@@ -1,0 +1,13 @@
+2026-05-21 10:50:01 INFO  Reporting.Engine - Scheduled report generation triggered: SalesReport-Monthly
+2026-05-21 10:50:02 INFO  Reporting.Datasets.OrdersDataset - Loading dataset schema v4.8.1
+2026-05-21 10:50:02 INFO  Reporting.Datasets.OrdersDataset - Available standard fields: OrderId, CustomerId, OrderDate, TotalAmount, ProductCount
+2026-05-21 10:50:02 DEBUG Reporting.Renderers.ReportFieldResolver - Resolving custom report fields for SalesReport-Monthly
+2026-05-21 10:55:03 INFO  Reporting.Engine - Starting report rendering: SalesReport-Monthly
+2026-05-21 10:55:04 WARN  Reporting.Datasets.OrdersDataset - Field 'ShippingCostNet' not found in current dataset schema v4.8.1
+2026-05-21 10:55:04 WARN  Reporting.Datasets.OrdersDataset - Extension-provided fields not included after schema migration from 4.8.0
+2026-05-21 10:55:04 ERROR Reporting.Renderers.ReportFieldResolver - Cannot resolve field 'ShippingCostNet'. Field not available in standard dataset v4.8.1.
+2026-05-21 10:55:04 ERROR Reporting.Engine - Report generation failed: FieldResolutionException - 'ShippingCostNet' is not a valid field for SalesReport-Monthly
+2026-05-21 10:55:04 WARN  Reporting.Engine - Available fields in dataset: OrderId, CustomerId, OrderDate, TotalAmount, ProductCount
+2026-05-21 10:56:00 INFO  Reporting.Engine - Retry attempt 1 for SalesReport-Monthly
+2026-05-21 10:56:00 ERROR Reporting.Renderers.ReportFieldResolver - Cannot resolve field 'ShippingCostNet'. Dataset schema migration from 4.8.0 may be incomplete.
+2026-05-21 10:56:01 ERROR Reporting.Engine - Report generation aborted after 1 retry.

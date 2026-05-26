@@ -1,0 +1,72 @@
+[
+  {
+    "issueId": "KI-102",
+    "title": "PDF rendering fails with custom invoice layout and empty payment terms",
+    "affectedVersions": ["4.8.2"],
+    "module": "Billing",
+    "probableCause": "InvoicePdfRenderer does not handle null PaymentTerms for custom layouts. When PaymentTermsDescription is null, the renderer throws a NullReferenceException instead of using a default empty value.",
+    "relatedFiles": [
+      "src/Billing/Pdf/InvoicePdfRenderer.cs",
+      "src/Billing/Pdf/InvoiceTemplateResolver.cs",
+      "src/Billing/Formatters/PaymentTermsFormatter.cs"
+    ],
+    "suggestedTests": [
+      "Custom invoice layout with PaymentTerms null",
+      "Standard invoice layout with PaymentTerms null",
+      "Custom invoice layout with PaymentTerms populated",
+      "Standard invoice layout with PaymentTerms populated"
+    ]
+  },
+  {
+    "issueId": "KI-118",
+    "title": "Order import job disabled after partial upgrade",
+    "affectedVersions": ["4.7.9", "4.8.0"],
+    "module": "Orders",
+    "probableCause": "ImportExport module configuration is reset after upgrade. The import job scheduler entry is removed from config/import-jobs.json, causing the OrderImportJob to not start. The FTP connector may also be pointing to the legacy endpoint.",
+    "relatedFiles": [
+      "src/Orders/Import/OrderImportJob.cs",
+      "src/ImportExport/Connectors/FtpConnector.cs",
+      "config/import-jobs.json"
+    ],
+    "suggestedTests": [
+      "Order import job runs on schedule after upgrade",
+      "FTP connector connects successfully to configured endpoint",
+      "Order import with valid FTP payload",
+      "Import job entry present in config after upgrade"
+    ]
+  },
+  {
+    "issueId": "KI-121",
+    "title": "Custom report field not available in standard dataset after migration to 4.8.1",
+    "affectedVersions": ["4.8.1"],
+    "module": "Reporting",
+    "probableCause": "Custom extension fields are not exposed in the standard Reporting dataset after the dataset schema migration introduced in 4.8.1. ReportFieldResolver does not include extension-provided fields in the schema resolution chain.",
+    "relatedFiles": [
+      "src/Reporting/Datasets/OrdersDataset.cs",
+      "src/Reporting/Renderers/ReportFieldResolver.cs"
+    ],
+    "suggestedTests": [
+      "Custom report renders with standard fields only",
+      "Custom report renders with custom extension fields (ShippingCostNet)",
+      "Dataset schema migration from 4.8.0 to 4.8.1 preserves extension fields",
+      "ReportFieldResolver resolves extension-provided fields"
+    ]
+  },
+  {
+    "issueId": "KI-130",
+    "title": "FTP connector endpoint migration required after infrastructure change",
+    "affectedVersions": ["4.7.9"],
+    "module": "ImportExport",
+    "probableCause": "FTP connector is still pointing to the legacy endpoint (legacy-ftp.verdi.internal). The infrastructure migration requires updating the FTP endpoint in config/ftp-config.json to the new address.",
+    "relatedFiles": [
+      "src/ImportExport/Connectors/FtpConnector.cs",
+      "config/ftp-config.json"
+    ],
+    "suggestedTests": [
+      "FTP connection to new endpoint succeeds",
+      "FTP order file download completes successfully",
+      "Full import cycle via new FTP endpoint",
+      "FTP connection timeout does not silently swallow errors"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs
+npm-debug.log*
