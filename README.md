@@ -121,7 +121,7 @@ copilot plugin marketplace add Ricciolo/FutureDevDay26
 Installa il plugin:
 
 ```
-copilot plugin install Ricciolo/FutureDevDay26
+copilot plugin install ticket2fix@ticket2fix-plugins
 ```
 
 Avvia Copilot CLI:
