@@ -41,23 +41,6 @@ Mostrare la differenza concreta tra un LLM generico e un agente custom:
 
 ---
 
-## Architettura della demo
-
-### Hook Claude Code
-
-La demo include anche un hook deterministico.
-
-Lo scopo dell'hook non è fare analisi del ticket, ma applicare una regola di processo prima che l'agente inizi a lavorare.
-
-**Hook scelto:** `UserPromptSubmit` (chiave JSON: `userPromptSubmitted`)
-
-**Motivo:**
-
-- intercetta il prompt dell'utente prima dell'elaborazione del modello
-- può bloccare prompt incompleti
-- può aggiungere contesto operativo all'agente
-- rende visibile il concetto di guardrail deterministico
-
 **Regola demo:**
 
 Se l'utente chiede di analizzare un ticket, ma non indica un identificativo nel formato `SUP-1234`, il prompt viene bloccato e viene richiesto di specificare il ticket ID.
@@ -68,9 +51,7 @@ Questo mostra che alcune regole non devono essere affidate solo al system prompt
 
 ## ✅ Prerequisiti
 
-- Windows
 - Node.js 20 o superiore
-- npm
 - GitHub Copilot CLI oppure Claude Code
 
 ---
@@ -99,10 +80,8 @@ claude
 Aggiungi questo repository GitHub come marketplace:
 
 ```
-/plugin marketplace add your-user/ticket2fix-mcp-agent
+/plugin marketplace add Ricciolo/FutureDevDay26
 ```
-
-> Sostituisci `your-user/ticket2fix-mcp-agent` con il percorso GitHub reale del repository.
 
 Installa il plugin Ticket2Fix da quel marketplace:
 
@@ -136,13 +115,13 @@ ticket2fix
 Aggiungi questo repository GitHub come marketplace:
 
 ```
-copilot plugin marketplace add your-user/ticket2fix-mcp-agent
+copilot plugin marketplace add Ricciolo/FutureDevDay26
 ```
 
 Installa il plugin:
 
 ```
-copilot plugin install your-user/ticket2fix-mcp-agent
+copilot plugin install Ricciolo/FutureDevDay26
 ```
 
 Avvia Copilot CLI:
@@ -276,9 +255,6 @@ In questo caso il hook aggiunge contesto all'agente, ricordando di usare:
 
 ## Checklist prima della demo
 
-- Verificare che la cartella `hooks/` sia alla root del plugin.
-- Verificare che `hooks/hooks.json` venga caricato dal plugin.
-- Verificare con `/hooks` in Claude Code che l'hook `UserPromptSubmit` (`userPromptSubmitted`) sia visibile.
 - Provare un prompt senza ticket ID e verificare che venga bloccato.
 - Provare un prompt con `SUP-1842` e verificare che venga accettato.
 
@@ -342,57 +318,4 @@ Analizza questo ticket e dimmi se è un bug.
 
 ---
 
-## Struttura del progetto
-
-```
-src/
-  server.ts               # Entry point MCP (stdin/stdout, JSON-RPC 2.0)
-  protocol/
-    jsonRpc.ts            # Tipi e helper JSON-RPC
-    mcpTypes.ts           # Tipi MCP e helper content
-  data/
-    repository.ts         # Lettura file JSON e log locali
-  tools/
-    getTicket.ts          # Tool: support_get_ticket
-    getCustomerContext.ts # Tool: support_get_customer_context
-    searchKnownIssues.ts  # Tool: support_search_known_issues
-    getRecentLogs.ts      # Tool: support_get_recent_logs
-  types/
-    domain.ts             # Tipi di dominio
-
-demo-data/                # Tutti i dati mock (nessun DB, nessuna API)
-  tickets.json
-  customers.json
-  known-issues.json
-  logs/
-    rossi-app.log
-    bianchi-app.log
-    verdi-app.log
-
-agents/
-  ticket2fix.agent.md          # Definizione agente
-
-skills/
-  support-triage/
-    SKILL.md             # Skill on-demand per il processo di triage
-
-hooks/
-  hooks.json                      # Configurazione hook userPromptSubmitted
-  validate-support-prompt.mjs     # Guardrail: blocca prompt senza ticket ID
-
-commands/
-  triage-ticket.md                # Slash command: triage tecnico completo
-```
-
 > **Nota**: tutti i dati sono mock locali in `demo-data/`. Nessun database. Nessuna API esterna. Nessun servizio cloud.
-
----
-
-> I command non sostituiscono i tool MCP.
->
-> I tool MCP espongono dati e capacità aziendali.
-> La skill definisce il metodo.
-> Il hook applica guardrail deterministici.
-> I command trasformano workflow frequenti in azioni ripetibili.
->
-> In questo modo il custom developer agent non è una chat generica, ma uno strumento operativo integrato nel flusso di lavoro.
