@@ -86,7 +86,7 @@ Aggiungi questo repository GitHub come marketplace:
 Installa il plugin Ticket2Fix da quel marketplace:
 
 ```
-/plugin install ticket2fix-mcp-agent@ticket2fix-plugins
+/plugin install ticket2fix@ticket2fix-plugins
 ```
 
 Se Claude chiede di applicare i cambiamenti senza riavviare:
@@ -207,7 +207,7 @@ L'agente caricherà la skill `support-triage`, userà i 4 tool MCP per recuperar
 Il plugin espone uno slash command principale.
 
 ```text
-/ticket2fix-mcp-agent:triage-ticket SUP-1842
+/ticket2fix:triage-ticket SUP-1842
 ```
 
 ### triage-ticket
@@ -219,7 +219,7 @@ Usa i tool MCP per recuperare: ticket, contesto cliente, versione installata, mo
 Produce: classificazione, evidenze, probabile causa, sintesi interna per supporto di secondo livello, brief tecnico per sviluppatore, checklist QA, dati mancanti, prossime azioni consigliate.
 
 ```text
-/ticket2fix-mcp-agent:triage-ticket SUP-1842
+/ticket2fix:triage-ticket SUP-1842
 ```
 
 > Il command è uno strumento interno. Non genera risposte dirette per il cliente.
@@ -311,7 +311,7 @@ Analizza questo ticket e dimmi se è un bug.
 **Passo 2 — Triage tecnico completo:**
 
 ```text
-/ticket2fix-mcp-agent:triage-ticket SUP-1842
+/ticket2fix:triage-ticket SUP-1842
 ```
 
 **Risultato atteso:** workflow completo di triage tecnico interno con classificazione, brief, checklist QA e prossime azioni.

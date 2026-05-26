@@ -1,5 +1,5 @@
 {
-  "name": "ticket2fix-mcp-agent",
+  "name": "ticket2fix",
   "version": "1.0.0",
   "description": "Custom Developer Agent for support ticket triage and developer handoff.",
   "type": "module",

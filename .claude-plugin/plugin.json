@@ -1,5 +1,5 @@
 {
-  "name": "ticket2fix-mcp-agent",
+  "name": "ticket2fix",
   "version": "1.0.0",
   "description": "Custom Developer Agent for support ticket triage and developer handoff. Powered by a local MCP server with 4 tools: get ticket, get customer context, search known issues, get recent logs.",
   "mcpServers": {

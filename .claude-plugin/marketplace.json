@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "ticket2fix-mcp-agent",
+      "name": "ticket2fix",
       "version": "1.0.0",
       "source": ".",
       "description": "Support ticket triage agent powered by a local MCP server."
