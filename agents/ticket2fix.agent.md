@@ -2,7 +2,6 @@
 name: ticket2fix
 description: "Trigger: use when the user needs help triaging support tickets, classifying bugs, preparing developer briefs or QA checklists from customer support requests."
 color: blue
-tools: [support_get_ticket, support_get_customer_context, support_search_known_issues, support_get_recent_logs]
 ---
 
 ## Identity
